@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+
+<html>
+   
+    
+    <head>
+        
+        <title>Mariner Snoopy/Darter PreMission Vehicle Check-Out</title>
+        <style type="text/css">
+<!--
+body {
+    
+    font: 20px Calibri;
+    background-color: white;
+    line-height: 1.2;
+    margin-top: 10%;
+    margin-bottom: 10%;
+    margin-right: 5%;
+    margin-left: 5%;
+
+}
+
+h1 {
+    color: black;
+    font-family: courier,arial,helvetica;
+    text-align: center; 
+    margin-top: 15%;
+    margin-right: 15%;
+    margin-left: 15%;
+}
+h2 {
+    margin-bottom 150px;
+    
+}
+
+table, th, td {
+    border: 1px solid black;
+    padding: 5px;
+    margin-left:auto;
+    margin-right:auto;
+    margin-bottom:10%;
+}
+        
+ul{
+    line-height:140%;
+    background: #CDF2F3;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+   
+}
+
+table {border-style: ridge;  border-width: 5px; border-color: #8ebf42;}
+
+.tab { margin-left: 40px}           
+
+-->
+</style>
+    </head>
+    
+    <body>
+        
+         
+             
+        <h1>Mariner Snoopy/Darter PreMission Vehicle Check-Out</h1> 
+             
+        <div align="center"><h2>Woods Hole Oceanographic Institution</h2></div>
+        <div align="center"><h2>March 2020</h2></div>
+        <table style="width:70%">
+        <tr>
+            <td>Vehicle <input type=text id="Vehicle"> DR <input type=text id="DR"></td> 
+            <td>NOTES <input type=text id="Notes"></td>
+        </tr>   
+        <tr>
+            <td>MSN# & date <input type=text id="MSN & Date"></td> 
+            <td>MSN Start Time <input type=text id="MSN Start Time"></td>
+        </tr> 
+        <tr>
+            <td>Initials <input type=text id="Initials"></td> 
+            <td>Keep Alive Ping <input type=text id="Keep Alive Ping"></td>
+        </tr> 
+            
+        
+        </table>    
+            
+    <ul>
+        
+        <li><input type="checkbox" > <strong>General Vehichle Health</strong>-Inspection Annunciators 
+        <ul>
+            <li>Voltage <input type = "text" id="Voltage"> </li> 
+            <li>Pressure <input type = "text" id="Pressure"></li> 
+            <li>Internal Temp <input type = "text" id="Internal Temp"></li>
+        </ul>
+        </li>
+        
+        <li><input type="checkbox" > <strong>Image of Vehichle</strong></li>
+        <li><input type="checkbox" > <strong>External Ballast</strong> - Rails/other mounting <input type = "text" id="External Ballast"> </li> 
+        <li><input type="checkbox" > <strong>Calibrate</strong> - Use Configure Vehicle/Calibrate pull down menu.  If needed calibrate the depth sensor, vehicle time, gyro, and pitch and rudder fins.</li>
+        <li><input type="checkbox" > <strong>Vehichle Tests</strong> - Configure Vehicle/Test Vehicle. Observe fin position and ranges:</li>
+        <ul>
+            <li>Fin Test</li>
+            <li>Bench Test</li>
+        </ul>
+        <li><input type="checkbox" > <Strong>Modem Test</Strong> - RHIB Modem. Confirm DR1 or DR2 Modem Address.  Interrogate and receive a modem message- VIP clock should turn blue. Inspect the message. Verify the abort command with vehicle- prop should spin.</li>
+        <li><input type="checkbox" > <strong>Hand Held Ranger Test</strong> - ranging, abort, and modem functions. Inspect battery on primary and backup Rangers.</li>
+        <li><input type="checkbox" > <strong>Make Irridium Call</strong></li>
+        <li><input type="checkbox" > <strong>Check Vehichle Sensors:</strong></li>
+        <ul> 
+            <li>Compass/Gyro</li>
+            <li>ADCP</li>
+            <li>GPS</li>
+            <li>CTD(NB)</li>
+            <li>SUNA</li>
+            <li>Ecopuck/Seaowl</li>
+            <li>Optode (uncover)</li>
+            <li>Clock(UTC)</li>
+            <li>Par(see Autonomy CPU)</li>
+            <li>Side Scan</li>
+        </ul>
+        <li><input type="checkbox" > <strong>Clamps</strong> - Inspect/tighten band clamps, hose clamps, and GoPros</li>
+        <li><input type="checkbox" > <strong>Dummy Plugs</strong></li>
+        <li><input type="checkbox" > <strong>Verify Mission Programming</strong> - Mission is loaded and displayed in navigation window.
+        Using the ‘Route Info’ pull down menu verify that the desired depth mode, DEPTH/Altitude, and RPM for each leg is correct.  Verify total time of mission and print out a mission plan if desired. Document Lat/Lon for launch and recovery.
+        </li>
+        <li><input type="checkbox"> <strong>Inspect ini File</strong></li>
+        <ul>
+            <li>Abort depth (max depth of standard clear housing GoPro is 40 meters)</li>
+            <li>Keep alive timeout</li>
+            <li>GPS parameters</li>
+            <li>Prop Cal</li>
+            <li>Timeouts</li>
+            <li>Check modem message priority</li>
+            <li>Iridium phone number 00881631586099 or 00881693022771. Minutes between connections during mission<input type="text" id="Minutes Between Iridium Connection"></li>   
+        </ul>
+        <li><input type="checkbox"> <strong>Inspect Autonomy CPU</strong></li>
+        <table><tr><td>
+        <ul style="list-style-type:none;">
+            
+            <li>Snoopy: 192.168.1.197</li>
+            <ul style="list-style-type:none;"><li>Par Sensor Data</li></ul>
+            <li>Darter: 192.168.1.198</li>
+            <ul style="list-style-type:none;"><li>Par Sensor Data</li></ul>
+            
+            <li>SSH to Backseat:</li>
+            <li>Username: <strong>autonomy</strong></li>
+            <li>Password: <strong>ros</strong></li>
+            
+            <li>To listen to sensor running on backseat</li>
+            <li><p class="tab"><strong>cd~/recon</strong></p></li>
+            <li><p class="tab"><strong>source devel/setup.sh</strong></p></li>
+            <li><p class="tab"><strong>rostopic list</strong> - (list everything pulishing)</p></li>
+            <li><p class="tab"><strong>restopic echo /par</strong> - (anything that is running can be substituted for /par)</p></li>
+            
+            <li> Par Readings:</li>
+            <ul style="list-style-type:none;">
+                <li>Lab lighting ~10</li>
+                <li>Light on sensor ~800</li>
+                <li>Sensor covered ~0 to ~1600 (senesors wraps to max value)</li>
+            </ul>
+            
+        </ul>
+        </td></tr></table>
+        <li><input type="checkbox"> <strong>Inspect Kelp Cam</strong></li>
+        <table><tr><td>
+        <ul style="list-style-type:none;">
+            
+            <li>Darter: 192.168.1.11</li>
+            
+            <li>After each power-up(magnet swipe) set the clock to UTC.</li>
+            <li>Log in using SSH(Putty). Username: pi Password: kelpcaM.</li>
+            <li>To set date, the command is:</li>
+            <li><p class="tab"><strong>sudo date --set="2020-01-15 23:32:59</strong></p></li> 
+           
+            <li>To clear old data, the command is:</li>
+            <li><p class="tab"><strong>cd /home/pi/kelpcam/-img</strong></p></li>
+            <li><p class="tab"><strong>rm *.jpg</strong></p></li>
+          
+            <li>Verify:</li>
+            <li>Observe Kelpcam VIP status text box, and then use VIP Comm Debugger and type:</li>
+            <li><p class="tab"><strong>#take_pictures</strong></p></li>
+             <li>After watching a few pictures scroll by, stop by sending:</li>
+            <li><p class="tab"><strong>#stop</strong></p></li>
+            
+          </ul>
+            </td></tr></table>
+        <div style="margin-top:50px;">
+        <table style="width:70%">
+         <tr>
+             <td colspan="0"><center><strong>[Simrad EK80]</strong></center></td>
+         </tr>
+         <tr>
+             <td>
+                 <ul>
+                     <li><input type="checkbox">The EK 80 CPU is powered when vehicle is turned on.</li>
+                     <li><input type="checkbox">Toggle Remus EK80 switch on in order to turn on the transducer boards.</li>
+                     <li><input type="checkbox">Remote Desktop 192.168.1.38 with <strong>user1</strong> and no password.</li>
+                     <li><input type="checkbox">Transducers are in the passive mode. They should be active when deployed.  Note orientation. Sometimes the transducers are pointed sideways or down.
+                        <ul>
+                            <li>200 kHz split-beam is larger transducer</li>
+                            <li>333 kHz single transducer is smaller.</li>
+                        </ul>
+                     </li>
+                     <li><input type="checkbox">Set ping to be <strong>ON</strong> and <strong>Auto Start</strong>.</li>
+                     <li><input type="checkbox">Check that you are recording and to what directory. Record raw and processed. Note file size to be recorded. Note range of data to be recorded. </li>
+                     <li><input type="checkbox">Clear or ensure adequate memory.</li>
+                     <li><input type="checkbox">Synchronize EK80 CPU clock to UTC</li>
+                     <li><input type="checkbox">Toggle Remus EK80 switch <strong>Off</strong>. You should see streaming data stop.  The EK80 will start writing files when that switch is automatically toggled as the vehicle dives. Ducers should not transmit in air.</li>
+                 </ul>
+             </td>
+          </tr>
+        </table>
+        <div style="margin-top:50px;">
+        <li><input type="checkbox">If desired, run a 5 second bench top mission and save RLF file. This will give you back mission track in the event of a VIP crash.</li>
+            <li><input type="checkbox"><strong>Check Vehicle Data Files</strong> - Be sure that existing files on the vehicle have been backed up/archived. (Be certain! This is your last chance before data is gone forever! Don't Blow it!) Clear Vehicle Data. Clear Side Scan.</li>
+            <li><input type="checkbox"><strong>Clear all fault messages and RESTART vehicle</strong> -  Ensure that all dummy lights are green.  Read any fault messages that appear.</li>
+            <li><input type="checkbox"><strong>Inspect INS:</strong>
+                <ul style="list-style-type:none;">
+                    <li>Darter-Kearfott</li>
+                    <li>Snoopy- PHINS C3 192.168.1.253</li>
+                    <li>Start Recording Internal C3 Repeater File (5Hz data)</li>
+                </ul>
+            </li>
+            <li><input type="checkbox"><strong>Final Look</strong> -  Annunciators Green? Fins Centered? INS aligned?</li>
+            <li><input type="checkbox"><strong>GoPro Settings</strong>
+                <ul style="list-style-type:none;">
+                    <li>Fully Charged Batteries</li>
+                    <li>64 GB Card Zeroed</li>
+                    <li>1080 at 24 fps</li>
+                    <li>Desiccant </li>
+                    <li>Clean lens</li>
+                    <li>Turn on and Start recording!</li>
+                </ul>
+            </li>
+        </ul>
+        <hr>
+        
+        <div align="center"><h1><strong>Recovery</strong></h1></div>
+        <ul>
+            <li><input type="checkbox">Put EK80 in Safe Mode</li>
+            <li><input type="checkbox">Download Remus Data (export Matlab files and csv files)</li>
+            <li><input type="checkbox">Download Side Scan</li>
+            <li><input type="checkbox">EK80 Data download is done through EK80 wet cable</li>
+            <li><input type="checkbox">Download Internally Recorded C3 Files</li>
+        </ul>
+        <div align="center"><h2>EK80 Post Mission</h2></div>
+        <ul>
+            <li><input type="checkbox">Turn ping to off as a precaution.</li>
+            <li><input type="checkbox">One must remote desktop in and shut down EK80 CPU properly - <strong>CONTROL, ALT, END</strong>. After that you can put the magnet on vehicle. If you do not follow procedure, be prepared to open payload. You will need USB mouse, VGA monitor, and possibly a keyboard. It can be powered by Remus or power supply.</li>
+        </ul>
+        <div align="center"><h2>KelpCam Post Mission</h2></div>
+        <ul>
+            <li><input type="checkbox">Use Filezilla to offload pictures in <strong>/home/pi/kelpcam-img</strong></li>
+            <ul style="list-style-type:none;"><li>Username: <strong>pi</strong></li></ul>
+            <ul style="list-style-type:none;"><li>Password: <strong>kelpcaM</strong></li></ul>
+            <li><input type="checkbox">Download images</li>
+        </ul>
+        <div>Date(MM-DD-YYY): <input type = "text" id="date"> (Note: Do not use /'s in the date format)</div>
+        <div>
+            <input type="button" id="bt" value="Save data to file" onclick="saveFile()" />
+        </div>
+   
+        
+    </body>
+    <script>
+        let saveFile = () => {
+            //Get the input data from page
+            const Vehicle = document.getElementById("Vehicle");
+            const DR = document.getElementById("DR");
+            const Notes = document.getElementById("Notes");
+            const MSNDate = document.getElementById("MSN & Date");
+            const MSNStart = document.getElementById("MSN Start Time");
+            const Initials = document.getElementById("Initials");
+            const KeepAlivePing = document.getElementById("Keep Alive Ping");
+            const Voltage = document.getElementById("Voltage");
+            const Pressure = document.getElementById("Pressure");
+            const InternalTemp = document.getElementById("Internal Temp");
+            const ExternalBallast = document.getElementById("External Ballast");
+            const IridiumMin = document.getElementById("Minutes Between Iridium Connection");
+            const Date = document.getElementById("date");
+            
+            //Create variable to contain all data
+            let data =
+                '\rVehicle: ' + Vehicle.value + ' \r\n' +
+                'DR: ' + DR.value + '\r\n' +
+                'Notes: ' + Notes.value + '\r\n' +
+                'MSN & Date: ' + MSNDate.value + '\r\n' +
+                'MSN Start Time: ' + MSNStart.value + '\r\n' +
+                'Initials: ' + Initials.value + '\r\n' +
+                'Keep Alive Ping: ' + KeepAlivePing.value + '\r\n' +
+                'Voltage: ' + Voltage.value + '\r\n' +
+                'Pressure: ' + Pressure.value + '\r\n' +
+                'Internal Temp: ' + InternalTemp.value + '\r\n' +
+                'External Ballast: ' + ExternalBallast.value + '\r\n' +
+                'Minutes Between Iridium Connection: ' + IridiumMin.value;
+            
+        const textToBLOB = new Blob([data], { type: 'text/plain' });
+        const sFileName = 'CheckoutData'+Date.value + '.txt';	   // The file to save the data.
+
+        let newLink = document.createElement("a");
+        newLink.download = sFileName;
+
+        if (window.webkitURL != null) {
+            newLink.href = window.webkitURL.createObjectURL(textToBLOB);
+        }
+        else {
+            newLink.href = window.URL.createObjectURL(textToBLOB);
+            newLink.style.display = "none";
+            document.body.appendChild(newLink);
+        }
+
+        newLink.click(); 
+    }
+                                
+        
+    </script>
+    
+</html>       
